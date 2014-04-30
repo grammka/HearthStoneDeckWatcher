@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="HSApp">
+<head>
+    <title>HS Builder</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="data/css/common.css"/>
+    <link rel="stylesheet" href="data/css/main.css"/>
+
+    <script src="data/js/libs/jquery.js"></script>
+    <script src="data/js/libs/angular.js"></script>
+    <script src="data/js/libs/angular-route.js"></script>
+
+    <script src="data/js/api.js"></script>
+
+    <script src="data/js/controllers/root.js"></script>
+    <script src="data/js/controllers/cards.js"></script>
+    <script src="data/js/controllers/heroes.js"></script>
+    <script src="data/js/controllers/decks.js"></script>
+    <script src="data/js/controllers/sidebar.js"></script>
+
+    <script src="data/js/services/data.js"></script>
+
+    <script src="data/js/filters/percent-to-color.js"></script>
+
+</head>
+<body ng-controller="RootCtrl">
+
+    <div class="b-header">
+        <div class="b-menu" ng-controller="HeroesCtrl">
+            <div class="b-menu__item">
+                <i class="ion ion-game-controller-b"></i>
+            </div>
+            <div ng-repeat="item in data.heroes"
+                 class="b-menu__item"
+                 ng-class="{ 'active' : data.chosenHeroName == item.name }"
+                 ng-click="changeHero(item.name)">{{ item.name }}</div>
+        </div>
+    </div>
+    <div class="b-header__back"></div>
+
+    <div class="b-wrapper">
+        <div class="b-content">
+            <!-- Cards -->
+            <table class="b-cards" ng-controller="CardsCtrl">
+                <thead class="b-cards__header">
+                    <tr>
+                        <td width="1%" class="b-cards__header__col"></td>
+                        <td width="1%" class="b-cards__header__col t-text_left">Name</td>
+                        <td width="1%" class="b-cards__header__col">Mana</td>
+                        <td width="1%" class="b-cards__header__col">Attack</td>
+                        <td width="1%" class="b-cards__header__col">Defense</td>
+                        <td class="b-cards__header__col t-text_left">Description</td>
+                    </tr>
+                </thead>
+                <tbody class="b-cards__body">
+                    <tr ng-repeat="item in data.cards | filter: data.globData.chosenHeroName" class="b-cards__row">
+                        <td class="b-cards__row__col b-cards__row__col_img t-text_left"></td>
+                        <td class="b-cards__row__col b-cards__row__col_name t-text_left">{{ item.name }}</td>
+                        <td class="b-cards__row__col" style="color: {{ item.cost | percentToColor:1:10 }};"><b>{{ item.cost }}</b></td>
+                        <td class="b-cards__row__col" style="color: {{ item.attack | percentToColor:1:12 }};"><b>{{ item.attack }}</b></td>
+                        <td class="b-cards__row__col" style="color: {{ item.defense | percentToColor:1:12 }};"><b>{{ item.defense }}</b></td>
+                        <td class="b-cards__row__col b-cards__row__col_desc t-text_left">{{ item.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- /Cards -->
+        </div>
+    </div>
+
+    <div class="b-sidebar" ng-controller="DecksCtrl">
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+@mixin i-cosial {
+	width: 73px;
+	height: 73px;
+	display: block;
+	background-image: url(../images/icons-social.png);
+	background-repeat: no-repeat;
+}
+
+.i-cosial {
+	@include i-cosial;
+}
+
+.i-cosial_vk          {background-color: #6996c7; background-position: 0         0;}
+.i-cosial_fb          {background-color: #496194; background-position: -73px     0;}
+.i-cosial_tw          {background-color: #28c3ff; background-position: -146px    0;}
+.i-cosial_ok          {background-color: #ff9c43; background-position: -219px    0;}
+.i-cosial_skype       {background-color: #28c3ff; background-position: 0         -73px;}
+.i-cosial_ya          {background-color: #ffffff; background-position: -73px     -73px;}
+.i-cosial_youtube     {background-color: #ff4343; background-position: -146px    -73px;}
+.i-cosial_vimeo       {background-color: #27c0fb; background-position: -219px    -73px;}
+.i-cosial_gplus       {background-color: #fe6d4a; background-position: 0         -146px;}
+
+
+
+
+
+@mixin i-moba-roles {
+	width: 18px;
+	height: 18px;
+	background-image: url(../images/moba/icons-roles.png);
+	background-repeat: no-repeat;
+}
+
+@mixin i-moba-roles_2x {
+	width: 18px;
+	height: 18px;
+	background-image: url(../images/moba/icons-roles_2x.png);
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+
+.i-moba-roles {
+	@include i-moba-roles;
+}
+
+.i-moba-roles_2x {
+	@include i-moba-roles_2x;
+}
+
+$roles-arr: carry, support, ganker, initiator, pusher, jungler, solo, babysitter, semi-carry, disabler, nuker, tank;
+
+@for $i from 1 through length($roles-arr) {
+	.i-moba-roles_#{nth($roles-arr, $i)} {
+		background-position: (1 - $i) * 18px 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

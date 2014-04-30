@@ -1,0 +1,43 @@
+.b-header {
+	width: 100%;
+	height: 40px;
+	background: #242220;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.b-header__back {
+	width: 100%;
+	height: 40px;
+}
+
+.b-menu {
+	font-size: 0;
+}
+
+.b-menu__item {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+	border-right: 1px solid #000;
+	cursor: pointer;
+
+	color: #999;
+	font-size: 16px;
+
+	@include display-inline-block;
+
+	&:hover {
+	    background: #333;
+	}
+
+	&.active {
+	    background: #000;
+		cursor: default;
+		color: #fff;
+	}
+}
+
+
+

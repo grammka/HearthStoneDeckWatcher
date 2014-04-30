@@ -1,0 +1,53 @@
+.btn {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+	font-size: 12px;
+	cursor: pointer;
+
+	@include display-inline-block;
+	@include border-radius(1px);
+
+	input {
+		color: inherit;
+		font-size: inherit;
+		text-transform: inherit;
+	}
+
+	&.disabled {
+		background: #ccc !important;
+		cursor: default;
+		
+		input {
+			color: #fff;
+			cursor: default;
+		}
+	}
+}
+
+.btn_bluegreen {
+	background: #00DDB1;
+	color: #04A571;
+
+	&:hover {
+		background: #00E9BB;
+	}
+
+	&:active {
+		background: #00D5AA;
+	}
+}
+
+.btn_orange {
+	background: #FFAD00;
+	color: #C07B00;
+
+	&:hover {
+		background: #FFB800;
+	}
+
+	&:active {
+		background: #F7A700;
+	}
+}

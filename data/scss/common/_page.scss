@@ -1,0 +1,12 @@
+body {
+	background-color: $page-bg-color;
+	font: 13px/18px 'Open Sans';
+
+	@include no-select;
+}
+
+.bg-img {
+	background-repeat: no-repeat;
+	background-position: 50% $header-height;
+	background-attachment: fixed;
+}
